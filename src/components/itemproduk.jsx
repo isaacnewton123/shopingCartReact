@@ -4,7 +4,8 @@ function ItemProduk({ name, stok, image, price, onToggle }) {
   return (
     <div className="bg-slate-700 p-4 rounded-lg flex justify-between items-center space-x-4">
       <img
-        className="bg-teal-500 text-white w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center"
+        className={`bg-teal-500 text-white w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center
+          ${stok === 0 ? "blur-sm" : ""}`}
         src={image}
       />
       <p className="text-slate-200">{name}</p>

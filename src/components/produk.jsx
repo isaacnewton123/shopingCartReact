@@ -8,7 +8,6 @@ function Produk({ produk, onToggle }) {
           Daftar Produk
         </h2>
         <div className="space-y-4">
-          
           {produk.map((p) => (
             <ItemProduk
               key={p.id}

@@ -32,7 +32,6 @@ function App() {
 
   const [produk, setProduk] = useState(initialProduk);
   const [cart, setCart] = useState([]);
-  
 
   function handleToggleAddToCart(item) {
     if (item.stok <= 0) {
@@ -53,7 +52,7 @@ function App() {
 
     setCart((prevCart) => {
       const itemCart = prevCart.find((b) => {
-       return b.id === item.id;
+        return b.id === item.id;
       });
 
       if (itemCart) {
@@ -69,7 +68,7 @@ function App() {
         // eslint-disable-next-line no-unused-vars
         const { stok, ...itemForCart } = item;
         const newCartItem = { ...itemForCart, amount: 1 };
-        return [...prevCart, newCartItem] ;
+        return [...prevCart, newCartItem];
       }
     });
   }
@@ -106,60 +105,67 @@ function App() {
   }
 
   function handleReduceCart(item) {
-    if (item.amount <= 0) {
+    if (item.amount <= 1) {
+      handleDelete(item);
       return;
     }
 
     setCart((prevCart) => {
-     const mappingCart = prevCart.map((a) => {
+      const mappingCart = prevCart.map((a) => {
         if (a.id === item.id) {
           return { ...a, amount: a.amount - 1 };
         } else {
           return a;
         }
       });
-      return mappingCart
+      return mappingCart;
     });
 
     setProduk((prevProduk) => {
-     const mappingProduk = prevProduk.map((b) => {
+      const mappingProduk = prevProduk.map((b) => {
         if (b.id === item.id) {
           return { ...b, stok: b.stok + 1 };
         } else {
           return b;
         }
       });
-      return mappingProduk
+      return mappingProduk;
     });
   }
 
   function handleDelete(item) {
+    setProduk((prevProduk) => {
+      const delCart = prevProduk.map((p) => {
+        if (p.id === item.id) {
+          return { ...p, stok: p.stok + item.amount };
+        } else {
+          return p;
+        }
+      });
+      return delCart;
+    });
+
     setCart((prevCart) => prevCart.filter((c) => c.id !== item.id));
   }
 
   function totalAllCart(item) {
-   return item.reduce((acumulation, object) => {
-      return acumulation + (object.price * object.amount)
-    }, 0)
+    return item.reduce((acumulation, object) => {
+      return acumulation + object.price * object.amount;
+    }, 0);
   }
 
   return (
     <div className="w-screen h-screen flex flex-col md:flex-row">
-      <Produk 
-      produk={produk}
-      onToggle={handleToggleAddToCart}
-      />
-      <Cart 
-      produk={cart}
-      total={totalAllCart(cart)}
-      onReduc={handleReduceCart}
-      onAdd={handleAddAmount}
-      onDelete={handleDelete}
+      <Produk produk={produk} onToggle={handleToggleAddToCart} />
+      <Cart
+        produk={cart}
+        total={totalAllCart(cart)}
+        onReduc={handleReduceCart}
+        onAdd={handleAddAmount}
+        onDelete={handleDelete}
       />
     </div>
   );
 }
-
-
 
 export default App;
