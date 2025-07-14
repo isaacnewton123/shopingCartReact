@@ -5,6 +5,11 @@ import rumah from "./assets/images/rumah.jpg";
 import sawah from "./assets/images/sawah.jpeg";
 import motor from "./assets/images/motor.jpg";
 
+/**
+ * Description placeholder
+ *
+ * @returns {*} 
+ */
 function App() {
   const initialProduk = [
     {

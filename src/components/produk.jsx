@@ -1,5 +1,13 @@
 import ItemProduk from "./itemproduk";
 
+/**
+ * Description placeholder
+ *
+ * @param {{ produk: any; onToggle: any; }} param0 
+ * @param {*} param0.produk 
+ * @param {*} param0.onToggle 
+ * @returns {*} 
+ */
 function Produk({ produk, onToggle }) {
   return (
     <div className="w-full md:w-1/2 bg-slate-800 flex flex-col items-center justify-center p-8 md:p-12">

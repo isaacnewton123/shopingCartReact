@@ -1,5 +1,16 @@
 import ItemCart from "./itemcart";
 
+/**
+ * Description placeholder
+ *
+ * @param {{ produk: any; onReduc: EventListener; total: BigInteger; onAdd: EventListenerObject; onDelete: any; }} param0 
+ * @param {*} param0.produk 
+ * @param {*} param0.onReduc 
+ * @param {*} param0.total 
+ * @param {*} param0.onAdd 
+ * @param {*} param0.onDelete 
+ * @returns {*} 
+ */
 function Cart({ produk, onReduc, total, onAdd, onDelete }) {
   return (
     <div className="w-full md:w-1/2 bg-green-700 flex flex-col items-center justify-center p-8 md:p-12">

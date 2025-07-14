@@ -1,5 +1,16 @@
 import { FaCartPlus } from "react-icons/fa";
 
+/**
+ * Description placeholder
+ *
+ * @param {{ name: any; stok: any; image: any; price: any; onToggle: any; }} param0 
+ * @param {*} param0.name 
+ * @param {*} param0.stok 
+ * @param {*} param0.image 
+ * @param {*} param0.price 
+ * @param {*} param0.onToggle 
+ * @returns {*} 
+ */
 function ItemProduk({ name, stok, image, price, onToggle }) {
   return (
     <div className="bg-slate-700 p-4 rounded-lg flex justify-between items-center space-x-4">

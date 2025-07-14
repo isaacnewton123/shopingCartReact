@@ -2,6 +2,19 @@ import { ImBin } from "react-icons/im";
 import { IoIosRemove } from "react-icons/io";
 import { IoAdd } from "react-icons/io5";
 
+/**
+ * Description placeholder
+ *
+ * @param {{ name: any; amount: any; price: any; image: any; onReduc: any; onAdd: any; onDelete: any; }} param0 
+ * @param {*} param0.name 
+ * @param {*} param0.amount 
+ * @param {*} param0.price 
+ * @param {*} param0.image 
+ * @param {*} param0.onReduc 
+ * @param {*} param0.onAdd 
+ * @param {*} param0.onDelete 
+ * @returns {*} 
+ */
 function ItemCart({ name, amount, price, image, onReduc, onAdd, onDelete }) {
   return (
     <div className="bg-green-800 p-4 rounded-lg flex justify-between items-center space-x-4">
