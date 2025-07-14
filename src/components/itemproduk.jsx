@@ -10,7 +10,15 @@ function ItemProduk({ name, stok, image, price, onToggle }) {
       />
       <p className="text-slate-200">{name}</p>
       <p className="text-gray-400">Stok : {stok}</p>
-      <p className="text-gray-200">Harga : {price}K</p>
+      <p className="text-gray-200">
+        Harga :{' '}
+        {price.toLocaleString("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          minimumFractionDigits: 0,
+        })}
+        K
+      </p>
       <FaCartPlus
         onClick={onToggle}
         className=" text-white w-8 h-8 rounded-lg flex-shrink-0 flex justify-center cursor-pointer hover:text-green-300"

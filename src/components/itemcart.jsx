@@ -21,7 +21,15 @@ function ItemCart({ name, amount, price, image, onReduc, onAdd, onDelete }) {
           onClick={onAdd}
         />
       </div>
-      <p className="text-gray-200">Harga : {price}K</p>
+      <p className="text-gray-200">
+        Harga :{" "}
+        {price.toLocaleString("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          minimumFractionDigits: 0,
+        })}
+        K
+      </p>
       <ImBin
         onClick={onDelete}
         className=" text-red-400 w-6 h-6 rounded-lg flex-shrink-0 flex justify-center cursor-pointer hover:text-red-300"

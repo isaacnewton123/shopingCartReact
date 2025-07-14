@@ -74,7 +74,8 @@ function App() {
   }
 
   function handleAddAmount(item) {
-    const itemFind = item.find((a) => a.id === item.id);
+    
+    const itemFind = produk.find((a) => a.id === item.id);
 
     if (!itemFind || itemFind.stok <= 0) {
       console.log(`Stok Habis`);

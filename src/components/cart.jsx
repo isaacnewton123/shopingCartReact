@@ -31,7 +31,12 @@ function Cart({ produk, onReduc, total, onAdd, onDelete }) {
         </div>
         <div className="p-4 rounded-lg flex justify-center items-center space-x-4">
           <h2 className="text-2xl font-bold text-white mb-6 text-center">
-            Total Belanja : {total}
+            Total Belanja :{" "}
+            {total.toLocaleString("id-ID", {
+              style: "currency",
+              currency: "IDR",
+              minimumFractionDigits: 0,
+            })}K
           </h2>
         </div>
       </div>
